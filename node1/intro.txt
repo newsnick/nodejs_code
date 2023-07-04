@@ -1,0 +1,19 @@
+Node.js is an open-source, server-side Javascript runtime enviromnent that allows developers to build scalable and efficient backend applications.
+
+All the fundamental concepts of Javascript such as conditional statements, variable declarations, arrays etc. all work as it is on node server as well.
+
+Node  js provides a wide range of built in modules that can be used to extend related functionality.
+
+global modules
+(modules which are not required to be imported, they are imported by default)
+
+
+non-global modules
+(modules that need to be imported in order to use them)
+
+core modules - 
+core modules are the most commonly used modules and those consist of core functionalities of node.js.
+
+eg. - fs, https, util, events, stream, url.
+
+node.js also provides rich set of third party modules available via npm
