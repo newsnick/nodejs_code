@@ -6,18 +6,18 @@ connection.connect()
 
 var router = express.Router()
 
-router.delete('/:empId', function (req, res) {
-  var empId = req.params.empId
+router.delete('/:stId', function (req, res) {
+  var stId = req.params.stId
 
   connection.query(
-    'DELETE FROM employee WHERE id = ?',
-    [empId],
+    'DELETE FROM students WHERE id = ?',
+    [stId],
     function (err, result) {
       if (err) {
         console.log('Error while deleting data.', err)
         res.status(500).send('Error while deleting data.')
       } else {
-        res.send('Enmployee deleted successfully.')
+        res.send('Student deleted successfully.')
       }
     }
   )

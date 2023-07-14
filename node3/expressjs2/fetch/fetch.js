@@ -8,7 +8,7 @@ var router = express.Router()
 
 router.get('/', function (req, res) {
   connection.query(
-    'SELECT * FROM employee',
+    'SELECT * FROM students',
     function (err, recordArray, fields) {
       if (err) {
         console.log('Error while fetching data.')

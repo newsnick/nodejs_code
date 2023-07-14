@@ -7,23 +7,17 @@ connection.connect()
 var router = express.Router()
 
 router.post('/', function (req, res) {
-  var employee = req.body
+  var students = req.body
 
   connection.query(
-    'insert INTO EMPLOYEE VALUES (?, ?, ?, ?, ?)',
-    [
-      employee.id,
-      employee.name,
-      employee.age,
-      employee.salary,
-      employee.deptID,
-    ],
+    'insert INTO STUDENTS VALUES (?, ?, ?, ?, ?)',
+    [students.id, students.name, students.age, students.major, students.year],
     function (err, result) {
       if (err) {
         console.log('Error while inserting data.')
         res.status(500).send('Error while inserting data.')
       } else {
-        res.send('Employee inserted successfully.')
+        res.send('Student inserted successfully.')
       }
     }
   )
