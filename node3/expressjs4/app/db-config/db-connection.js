@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 //Database connection
 
 const sequelize = new Sequelize('college', 'root', 'root', {
-  host: '127.0.0.1',
+  host: 'localhost',
   dialect: 'mysql',
   pool: {
     max: 5,

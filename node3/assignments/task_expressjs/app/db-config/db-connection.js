@@ -1,10 +1,18 @@
-const { Sequelize, DataTypes } = require('sequelize')
-
+'use strict'
+Object.defineProperty(exports, '__esModule', { value: true })
+exports.DataTypes = exports.sequelize = void 0
+var sequelize = require('sequelize')
+Object.defineProperty(exports, 'DataTypes', {
+  enumerable: true,
+  get: function () {
+    return sequelize.DataTypes
+  },
+})
 // Database connection
-
-const sequelize = new Sequelize('reactapp', 'root', 'root', {
-  host: '127.0.0.1',
+var sequelize = new sequelize.Sequelize('test', 'root', 'root', {
+  host: 'localhost',
   dialect: 'mysql',
+  sync: true,
   pool: {
     max: 5,
     min: 0,
@@ -12,8 +20,4 @@ const sequelize = new Sequelize('reactapp', 'root', 'root', {
     idle: 10000,
   },
 })
-
-module.exports = {
-  sequelize,
-  DataTypes,
-}
+exports.sequelize = sequelize

@@ -10,14 +10,16 @@ const createStudent = async (req, res) => {
     res.send('Student inserted successfully.')
   } catch (error) {
     console.log('Error while inserting data: ', error)
-    res.status(500), send('Error while inserting data.')
+    res.status(500).send('Error while inserting data.')
   }
 }
 
 //Student fetch all operation
 const getAllStudents = async (req, res) => {
   try {
-    const students = await Student.findAll()
+    const students = await Student.findAll({
+      attributes: { exclude: ['createdAt', 'updatedAt'] },
+    })
     res.send(students)
   } catch (error) {
     console.log('Error while fetching data:', error)
@@ -45,6 +47,7 @@ const updateStudent = async (req, res) => {
     res.send('Student updated successfully.')
   } catch (error) {
     console.log('Error while updating student.')
+    res.status(500).send('Error while updating student.')
   }
 }
 
@@ -60,7 +63,8 @@ const deleteStudent = async (req, res) => {
     await student.destroy()
     res.send('Student deleted successfully.')
   } catch (error) {
-    console.log('Error while deleting student.')
+    console.log('Error while deleting student:', error)
+    res.status(500).send('Error while deleting student.')
   }
 }
 

@@ -1,11 +1,11 @@
-const Task = require('../models/task.model')
+const { Task } = require('../models/task.model')
 
 // Task insert operation
 
 const createTask = async (req, res) => {
   const { id, username, description, deadline, status } = req.body
   try {
-    const task = await Student.create({
+    const task = await Task.create({
       id,
       username,
       description,
@@ -15,7 +15,7 @@ const createTask = async (req, res) => {
     res.send('Task inserted successfully.')
   } catch (error) {
     console.log('Error while inserting data: ', error)
-    res.status(500), send('Error while inserting data.')
+    res.status(500).send('Error while inserting data.')
   }
 }
 
