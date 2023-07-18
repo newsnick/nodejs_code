@@ -1,4 +1,4 @@
-const Student = require('../models/student.model')
+const Student = require('../models/student.model.js')
 
 //Student insert operation
 
