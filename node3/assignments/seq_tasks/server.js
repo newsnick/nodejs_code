@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const taskRoutes = require('../seq_tasks/routes/task.routes.js')
+const taskRoutes = require('./routes/task.routes.js')
 console.log(taskRoutes)
 const { sequelize } = require('./db-config/db-connection.js')
 
@@ -19,6 +19,7 @@ app.use('/tasks', taskRoutes)
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`)
 })
+
 /*
 fetch request- 
 http://localhost:9090/fetch
