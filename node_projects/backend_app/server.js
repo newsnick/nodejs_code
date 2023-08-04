@@ -3,33 +3,20 @@ const bodyParser = require('body-parser')
 const xml2js = require('xml2js')
 
 const app = express()
+// Middleware to accept JSON data
+app.use(express.json())
 const PORT = 8080
 const contactRoutes = require('./app/routes/contact.routes')
 
-// Middleware to accept JSON data
-app.use(bodyParser.json())
+// Require and use the protected middleware for JWT authentication
+const protectedMiddleware = require('./app/routes/protected')
+app.use('/api', protectedMiddleware)
 
-// Middleware to accept URL-encoded data
-app.use(bodyParser.urlencoded({ extended: true }))
-
-// Middleware to accept XML data and convert it to JSON
-app.use(bodyParser.text({ type: 'application/xml' }))
-app.use((req, res, next) => {
-  if (req.is('application/xml')) {
-    xml2js.parseString(req.body, (err, result) => {
-      if (err) {
-        return next(err)
-      }
-      req.body = result
-      next()
-    })
-  } else {
-    next()
-  }
-})
+const authMiddleware = require('./app/routes/auth')
+app.use('/api', authMiddleware)
 
 // Use contact routes
-app.use('/contacts', contactRoutes)
+app.use('/api/contacts', contactRoutes)
 
 // Start the server
 app.listen(PORT, () => {
