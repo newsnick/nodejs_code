@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const xml2js = require('xml2js')
 
@@ -6,6 +7,10 @@ const app = express()
 // Middleware to accept JSON data
 app.use(express.json())
 const PORT = 8080
+
+// Enable CORS for all routes
+app.use(cors())
+
 const contactRoutes = require('./app/routes/contact.routes')
 
 // Require and use the protected middleware for JWT authentication
