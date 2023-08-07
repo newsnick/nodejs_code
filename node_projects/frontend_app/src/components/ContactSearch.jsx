@@ -7,19 +7,31 @@ const ContactSearch = ({ onSearch }) => {
     setSearchName(event.target.value)
   }
 
-  const handleSearchClick = () => {
+  const handleSearchClick = (event) => {
+    event.preventDefault()
     onSearch(searchName)
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Enter name..."
-        value={searchName}
-        onChange={handleSearchChange}
-      />
-      <button onClick={handleSearchClick}>Search</button>
+    <div className="container-fluid">
+      <form class="d-flex" role="search">
+        {' '}
+        <input
+          className="form-control me-2"
+          type="search"
+          placeholder="Enter name..."
+          aria-label="Search"
+          value={searchName}
+          onChange={handleSearchChange}
+        />
+        <button
+          class="btn btn-outline-success"
+          type="submit"
+          onClick={handleSearchClick}
+        >
+          Search
+        </button>
+      </form>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ContactSearch from './ContactSearch'
+// import ContactSearch from './ContactSearch'
 
 const EditableContact = ({ contact, onSave }) => {
   const [editedContact, setEditedContact] = useState({ ...contact })
@@ -63,7 +63,7 @@ const ContactList = () => {
 
   useEffect(() => {
     const accessToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTM5Mzc4NiwiZXhwIjoxNjkxNDA4MTg2fQ.b-oOdYMZFlHfTHghEPQY1pxbiZ9vx6LGpi2duWQj6j0'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
 
     fetch('http://localhost:8080/api/contacts', {
       headers: {
@@ -78,7 +78,7 @@ const ContactList = () => {
   const handleDeleteContact = (contactId) => {
     if (contactId) {
       const accessToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTM5Mzc4NiwiZXhwIjoxNjkxNDA4MTg2fQ.b-oOdYMZFlHfTHghEPQY1pxbiZ9vx6LGpi2duWQj6j0'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
       fetch(`http://localhost:8080/api/contacts/${contactId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -103,7 +103,7 @@ const ContactList = () => {
 
   const handleUpdateContact = (updatedContact) => {
     const accessToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTM5Mzc4NiwiZXhwIjoxNjkxNDA4MTg2fQ.b-oOdYMZFlHfTHghEPQY1pxbiZ9vx6LGpi2duWQj6j0'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
 
     fetch(`http://localhost:8080/api/contacts/${updatedContact._id}`, {
       method: 'PUT', // Use PUT method for updating data
@@ -153,20 +153,20 @@ const ContactList = () => {
   //     .catch((error) => console.error('Error fetching name:', error))
   // }
 
-  const handleSearchByName = (searchName) => {
-    fetch(`http://localhost:8080/api/contacts/${searchName}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setContacts(data)
-        } else if (data._id) {
-          setContacts([data])
-        } else {
-          setContacts([])
-        }
-      })
-      .catch((error) => console.error('Error fetching name:', error))
-  }
+  // const handleSearchByName = (searchName) => {
+  //   fetch(`http://localhost:8080/api/contacts/${searchName}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (Array.isArray(data)) {
+  //         setContacts(data)
+  //       } else if (data._id) {
+  //         setContacts([data])
+  //       } else {
+  //         setContacts([])
+  //       }
+  //     })
+  //     .catch((error) => console.error('Error fetching name:', error))
+  // }
 
   return (
     <div className="card" style={{ width: '21rem', margin: '20px 0 0 400px' }}>
@@ -174,7 +174,7 @@ const ContactList = () => {
         {' '}
         <h2>Contact List</h2>
       </div>
-      <ContactSearch onSearch={handleSearchByName} />
+      {/* <ContactSearch onSearch={handleSearchByName} /> */}
 
       {contacts.map((contact) => (
         <div key={contact._id}>
