@@ -5,8 +5,9 @@ const authenticateToken = require('./protected')
 
 // Protected routes (require JWT authentication)
 
-router.post('/', authenticateToken, contactController.createContact)
-router.get('/', authenticateToken, contactController.getAllContacts)
+router.post('/', contactController.createContact)
+router.get('/', contactController.getAllContacts)
+router.get('/:name', contactController.getContactByName)
 router.put('/:id', authenticateToken, contactController.updateContact)
 router.delete('/:id', authenticateToken, contactController.deleteContact)
 
