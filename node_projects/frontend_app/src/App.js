@@ -1,54 +1,3 @@
-// import './App.css'
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-// import ContactList from './components/ContactList'
-// import ContactSearch from './components/ContactSearch'
-
-// function App() {
-//   return (
-//     <Router>
-//       <div className="container">
-//         <nav className="navbar d-flex bg-body-tertiary">
-//           <ul>
-//             <li>
-//               <div className="leftContainer">
-//                 {' '}
-//                 <Link
-//                   style={{ textDecoration: 'none', fontWeight: '600' }}
-//                   to="/"
-//                 >
-//                   Home
-//                 </Link>{' '}
-//                 <Link
-//                   style={{ textDecoration: 'none', fontWeight: '600' }}
-//                   to="/contacts"
-//                 >
-//                   Contacts
-//                 </Link>
-//               </div>
-//             </li>
-
-//             <li>
-//               {/* <Link to="/search">Search</Link> */}
-//               <ContactSearch onSearch={handleSearchByName} />
-//             </li>
-//           </ul>
-//         </nav>
-
-//         <Routes>
-//           <Route path="/contacts" element={<ContactList />} />
-//           <Route path="/" />
-//         </Routes>
-//       </div>
-//     </Router>
-
-//     // <div className="App">
-//     //   <ContactList />
-//     // </div>
-//   )
-// }
-
-// export default App
-
 import './App.css'
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
@@ -111,6 +60,11 @@ function App() {
         </button>
       </div>
     )
+  }
+
+  // Clear the search results
+  const handleCloseSearch = () => {
+    setContacts([])
   }
 
   const handleDeleteContact = (contactId) => {
@@ -221,44 +175,59 @@ function App() {
             </li>
           </ul>
         </nav>{' '}
-        {contacts.map((contact) => (
-          <div key={contact._id}>
-            {contact.editMode ? (
-              <EditableContact contact={contact} onSave={handleUpdateContact} />
-            ) : (
-              <>
-                <div className="card-body">
-                  {' '}
-                  <p>Name: {contact.name}</p>
-                  <p>Address: {contact.address}</p>
-                  <p>Email: {contact.email}</p>
-                  <p>Phone: {contact.phone}</p>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() =>
-                      setContacts((prevContacts) =>
-                        prevContacts.map((prevContact) =>
-                          prevContact._id === contact._id
-                            ? { ...prevContact, editMode: true }
-                            : prevContact
-                        )
-                      )
-                    }
-                  >
-                    Update Contact
-                  </button>
-                  <button
-                    className="btn btn-danger m-2"
-                    onClick={() => handleDeleteContact(contact._id)}
-                  >
-                    Delete Contact
-                  </button>
-                  <hr />
-                </div>
-              </>
-            )}
-          </div>
-        ))}
+        <div className="searchResult">
+          {' '}
+          {contacts.length > 0 && ( // Render the close button only when there are search results
+            <button
+              className="btn btn-link close-button"
+              onClick={handleCloseSearch}
+            >
+              Close
+            </button>
+          )}
+          {contacts.map((contact) => (
+            <div key={contact._id}>
+              {contact.editMode ? (
+                <EditableContact
+                  contact={contact}
+                  onSave={handleUpdateContact}
+                />
+              ) : (
+                <>
+                  <div className="card-body">
+                    {' '}
+                    <p>Name: {contact.name}</p>
+                    <p>Address: {contact.address}</p>
+                    <p>Email: {contact.email}</p>
+                    <p>Phone: {contact.phone}</p>
+                    <div className="buttons">
+                      <button
+                        className="btn btn-primary"
+                        onClick={() =>
+                          setContacts((prevContacts) =>
+                            prevContacts.map((prevContact) =>
+                              prevContact._id === contact._id
+                                ? { ...prevContact, editMode: true }
+                                : prevContact
+                            )
+                          )
+                        }
+                      >
+                        Update Contact
+                      </button>
+                      <button
+                        className="btn btn-danger m-2"
+                        onClick={() => handleDeleteContact(contact._id)}
+                      >
+                        Delete Contact
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
         <Routes>
           <Route path="/contacts" element={<ContactList />} />
           <Route path="/" />

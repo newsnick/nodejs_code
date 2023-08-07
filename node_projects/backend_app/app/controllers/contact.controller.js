@@ -24,18 +24,22 @@ const getAllContacts = async (req, res) => {
   }
 }
 
-// Contact fetch by name operation
 const getContactByName = async (req, res) => {
   const { name } = req.params
 
   try {
-    const contact = await Contact.findOne({ name })
+    // Use $regex and $options
+    const contact = await Contact.find({
+      name: { $regex: name, $options: 'i' },
+    })
+
     if (!contact) {
       return res.status(404).send('Contact not found.')
     }
     res.send(contact)
   } catch (error) {
-    console.log('Error while fetching contact by name.')
+    console.log('Error while fetching contact by name:', error)
+    res.status(500).send('Error while fetching contact by name.')
   }
 }
 

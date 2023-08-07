@@ -1,0 +1,10 @@
+.card-header {
+  border: 7px dashed lightseagreen;
+  margin: 0.2em;
+}
+
+.card-body {
+  margin: 0.2em;
+  border: 7px dashed goldenrod;
+  border-radius: 5px;
+}

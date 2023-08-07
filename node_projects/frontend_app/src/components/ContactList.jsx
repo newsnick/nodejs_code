@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import ContactSearch from './ContactSearch'
+import './ContactList.css'
 
 const EditableContact = ({ contact, onSave }) => {
   const [editedContact, setEditedContact] = useState({ ...contact })
@@ -62,12 +62,13 @@ const ContactList = () => {
   const [contacts, setContacts] = useState([])
 
   useEffect(() => {
-    const accessToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
+    // const accessToken =
+    //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
 
     fetch('http://localhost:8080/api/contacts', {
       headers: {
-        Authorization: `Bearer ${accessToken}`, // include access token here
+        // Authorization: `Bearer ${accessToken}`, // include access token here
+        Authorization: 'none',
       },
     })
       .then((response) => response.json())
@@ -131,50 +132,12 @@ const ContactList = () => {
       .catch((error) => console.error('Error updating contact:', error))
   }
 
-  // const handleSearchByName = (searchName) => {
-  //   const accessToken =
-  //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTM5Mzc4NiwiZXhwIjoxNjkxNDA4MTg2fQ.b-oOdYMZFlHfTHghEPQY1pxbiZ9vx6LGpi2duWQj6j0'
-
-  //   fetch(`http://localhost:8080/api/contacts/${searchName}`, {
-  //     headers: {
-  //       Authorization: `Bearer ${accessToken}`,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (Array.isArray(data)) {
-  //         setContacts(data)
-  //       } else if (data._id) {
-  //         setContacts([data])
-  //       } else {
-  //         setContacts([])
-  //       }
-  //     })
-  //     .catch((error) => console.error('Error fetching name:', error))
-  // }
-
-  // const handleSearchByName = (searchName) => {
-  //   fetch(`http://localhost:8080/api/contacts/${searchName}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (Array.isArray(data)) {
-  //         setContacts(data)
-  //       } else if (data._id) {
-  //         setContacts([data])
-  //       } else {
-  //         setContacts([])
-  //       }
-  //     })
-  //     .catch((error) => console.error('Error fetching name:', error))
-  // }
-
   return (
     <div className="card" style={{ width: '21rem', margin: '20px 0 0 400px' }}>
       <div className="card-header">
         {' '}
         <h2>Contact List</h2>
       </div>
-      {/* <ContactSearch onSearch={handleSearchByName} /> */}
 
       {contacts.map((contact) => (
         <div key={contact._id}>
@@ -208,7 +171,6 @@ const ContactList = () => {
                 >
                   Delete Contact
                 </button>
-                <hr />
               </div>
             </>
           )}
