@@ -56,7 +56,7 @@ const deleteContact = async (req, res) => {
     res.send('Contact deleted successfully.')
   } catch (error) {
     console.log('Error while deleting Contact:', error)
-    res.stauts(500).send('Error while deleting contact.')
+    res.status(500).send('Error while deleting contact.')
   }
 }
 

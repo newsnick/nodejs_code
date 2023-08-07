@@ -29,7 +29,7 @@ router.post('/login', (req, res) => {
 
   //Create a token with the user id and sign it with the secret key
 
-  const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' }) //Token expires in 1 hour
+  const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '4h' }) //Token expires in 4 hour
   res.json({ token })
 })
 
