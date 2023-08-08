@@ -8,3 +8,12 @@
   border: 7px dashed goldenrod;
   border-radius: 5px;
 }
+
+.container {
+  background-color: white;
+  --bs-gutter-x: 0 !important;
+}
+
+.row {
+  background-color: white;
+}
