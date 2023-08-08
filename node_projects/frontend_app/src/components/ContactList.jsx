@@ -79,7 +79,7 @@ const ContactList = () => {
   const handleDeleteContact = (contactId) => {
     if (contactId) {
       const accessToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQ3ODU4OCwiZXhwIjoxNjkxNDkyOTg4fQ.4iY8fHxDZxCsj1hlJM7bNYNYfq_70isfGryY2y-uFRc'
       fetch(`http://localhost:8080/api/contacts/${contactId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -104,7 +104,7 @@ const ContactList = () => {
 
   const handleUpdateContact = (updatedContact) => {
     const accessToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQzMjAzMiwiZXhwIjoxNjkxNDQ2NDMyfQ.TnUDwcH_WzYblP-PtnuoaEQZkX_glCK7-ECgOBhoeJE'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTQ3ODU4OCwiZXhwIjoxNjkxNDkyOTg4fQ.4iY8fHxDZxCsj1hlJM7bNYNYfq_70isfGryY2y-uFRc'
 
     fetch(`http://localhost:8080/api/contacts/${updatedContact._id}`, {
       method: 'PUT', // Use PUT method for updating data
@@ -133,49 +133,51 @@ const ContactList = () => {
   }
 
   return (
-    <div className="card" style={{ width: '21rem', margin: '20px 0 0 400px' }}>
-      <div className="card-header">
-        {' '}
-        <h2>Contact List</h2>
-      </div>
-
-      {contacts.map((contact) => (
-        <div key={contact._id}>
-          {contact.editMode ? (
-            <EditableContact contact={contact} onSave={handleUpdateContact} />
-          ) : (
-            <>
-              <div className="card-body">
-                {' '}
-                <p>Name: {contact.name}</p>
-                <p>Address: {contact.address}</p>
-                <p>Email: {contact.email}</p>
-                <p>Phone: {contact.phone}</p>
-                <button
-                  className="btn btn-primary"
-                  onClick={() =>
-                    setContacts((prevContacts) =>
-                      prevContacts.map((prevContact) =>
-                        prevContact._id === contact._id
-                          ? { ...prevContact, editMode: true }
-                          : prevContact
-                      )
-                    )
-                  }
-                >
-                  Update Contact
-                </button>
-                <button
-                  className="btn btn-danger m-2"
-                  onClick={() => handleDeleteContact(contact._id)}
-                >
-                  Delete Contact
-                </button>
-              </div>
-            </>
-          )}
+    <div>
+      <h2>Contact List</h2>
+      <div className="container">
+        <div className="row">
+          {contacts.map((contact) => (
+            <div className="col-md-4 mb-3" key={contact._id}>
+              {contact.editMode ? (
+                <EditableContact
+                  contact={contact}
+                  onSave={handleUpdateContact}
+                />
+              ) : (
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title">{contact.name}</h5>
+                    <p className="card-text">Address: {contact.address}</p>
+                    <p className="card-text">Email: {contact.email}</p>
+                    <p className="card-text">Phone: {contact.phone}</p>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() =>
+                        setContacts((prevContacts) =>
+                          prevContacts.map((prevContact) =>
+                            prevContact._id === contact._id
+                              ? { ...prevContact, editMode: true }
+                              : prevContact
+                          )
+                        )
+                      }
+                    >
+                      Update Contact
+                    </button>
+                    <button
+                      className="btn btn-danger m-2"
+                      onClick={() => handleDeleteContact(contact._id)}
+                    >
+                      Delete Contact
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   )
 }

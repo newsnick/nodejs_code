@@ -47,7 +47,7 @@ body {
 p {
   max-width: 280px;
   margin: 15px;
-  margin-top: 15px;
+  padding-top: 10px;
 }
 
 ul {
@@ -82,7 +82,7 @@ ul {
 }
 .container {
   background-color: #f8f9fa;
-  border-radius: 10px;
+  max-width: 100% !important;
 }
 
 .leftContainer {

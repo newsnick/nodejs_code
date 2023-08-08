@@ -24,6 +24,7 @@ const getAllContacts = async (req, res) => {
   }
 }
 
+// Contact fetch by name operation
 const getContactByName = async (req, res) => {
   const { name } = req.params
 
