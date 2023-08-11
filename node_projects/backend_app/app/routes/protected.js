@@ -19,6 +19,6 @@ const authenticateToken = (req, res, next) => {
   })
 }
 
-router.use(['/contacts/:id'], authenticateToken)
+// router.use(['/contacts/:id'], authenticateToken)
 
 module.exports = router

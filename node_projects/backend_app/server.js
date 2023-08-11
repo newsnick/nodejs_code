@@ -1,7 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const bodyParser = require('body-parser')
-const xml2js = require('xml2js')
 
 const app = express()
 // Middleware to accept JSON data

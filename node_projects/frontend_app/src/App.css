@@ -44,18 +44,26 @@ html {
 body {
 }
 
+a {
+  color: white !important;
+}
+
 p {
   max-width: 280px;
   margin: 15px;
   padding-top: 10px;
 }
 
+dl,
+ol,
 ul {
   list-style: none;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 0 0 -10px;
+  margin-top: 0;
 }
 
 .buttons {
@@ -79,6 +87,7 @@ ul {
   gap: 100px;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 }
 .container {
   background-color: #f8f9fa;

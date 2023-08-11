@@ -1,3 +1,5 @@
+//contact.controller.js
+
 const Contact = require('../models/contact.model')
 
 const createContact = async (req, res) => {
@@ -12,6 +14,18 @@ const createContact = async (req, res) => {
     res.status(500).send('Error while inserting data.')
   }
 }
+
+// const createContact = async (req, res) => {
+//   const contactData = req.body // Assuming req.body is a single contact object
+
+//   try {
+//     const contact = await Contact.create(contactData) // Use the create method
+//     res.send('Contact inserted successfully.')
+//   } catch (error) {
+//     console.log('Error while inserting data:', error)
+//     res.status(500).send('Error while inserting data.')
+//   }
+// }
 
 // Contact fetch all operation
 const getAllContacts = async (req, res) => {
