@@ -84,7 +84,7 @@ This repository showcases a CRUD (Create, Read, Update, Delete) application buil
 
 ## ContactList
 
-The `ContactList.jsx` component is ht emain interface for managing contacts. It allows users to search, view, create, update, and delete contacts.
+The `ContactList.jsx` component is the main interface for managing contacts. It allows users to search, view, create, update, and delete contacts.
 
 ## How to Contribute
 
