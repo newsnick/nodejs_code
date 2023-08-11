@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# React MVC CRUD App Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository showcases a CRUD (Create, Read, Update, Delete) application built using React in an MVC (Model-View-Controller) architecture. The app allows users to manage contacts with various operations. Below is a detailed documentation on the features, setup, and usage of this application.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Create, Read, Update, and Delete contacts.
+- Search contacts by name.
+- MVC architecture for better separation of concerns.
+- Utilizes React for the frontend and Express.js with MongoDB for the backend.
 
-### `npm start`
+## Project Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Local Machine Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone this repository to your local machine:
 
-### `npm test`
+   ```bash
+   git clone https://github.com/newsnick/node_projects.git <your-folder>
+   cd <your-folder>
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Note: `<your-folder>` will automatically be created during the operation.**
 
-### `npm run build`
+2. Navigate to the frontend directory and install dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   cd frontend_app
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Navigate to the backend directory and install dependencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   cd backend_app
+   npm install
+   ```
 
-### `npm run eject`
+## Setting Up the Express API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Create a MongoDB Atlas account and get the connection URI.
+2. Replace `dbURI` in `db-connection.js` with your MongoDB connection URI.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Note: the above steps are optional as a connection URI (`test`) is already provided in this project.**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Start the backend server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+4. The Express API will be accessible at `http://localhost:8080`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Running the Frontend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Start the React app:
 
-### Code Splitting
+   ```bash
+   cd frontend_app
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## User Features
 
-### Analyzing the Bundle Size
+- View a List of contacts.
+- Search for contacts by name.
+- Create a new contact.
+- Update an existing contact.
+- Delete a contact.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technologies Used
 
-### Making a Progressive Web App
+### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- React
+- React Router
+- Bootstrap (for styling)
 
-### Advanced Configuration
+### Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Express.js
+- MongoDB (Atlas)
+- Mongoose (ODM for MongoDB)
 
-### Deployment
+## ContactList
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The `ContactList.jsx` component is ht emain interface for managing contacts. It allows users to search, view, create, update, and delete contacts.
 
-### `npm run build` fails to minify
+## How to Contribute
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository on GitHub.
+2. Clone your forked repository to your local machine:
+
+```bash
+ git clone https://github.com/your-username/your-repo.git
+ cd your-repo
+```
+
+3. Install the dependencies:
+
+```bash
+ cd frontend_app
+ npm install
+```
+
+4. Create a new branch for your changes:
+
+```bash
+ git checkout -b feature/new-feature
+```
+
+5. Make your changes and commit them:
+
+```bash
+ git commit -m "Add new feature"
+```
+
+6. Push your changes to your forked repository:
+
+```bash
+ git push origin feature/new-feature
+```
+
+7. Create a pull request on GitHub.
+
+8. Wait for your changes to be reviewed and merged.
+
+### Licence
+
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License - see the [LICENCE](https://choosealicense.com/licenses/mit/) file for details.
