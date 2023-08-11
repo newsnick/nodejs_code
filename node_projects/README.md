@@ -86,6 +86,8 @@ This repository showcases a CRUD (Create, Read, Update, Delete) application buil
 
 The `ContactList.jsx` component is the main interface for managing contacts. It allows users to search, view, create, update, and delete contacts.
 
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/1.%20main.png?raw=true)
+
 ## How to Contribute
 
 1. Fork the repository on GitHub.
