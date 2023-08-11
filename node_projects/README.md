@@ -86,7 +86,16 @@ This repository showcases a CRUD (Create, Read, Update, Delete) application buil
 
 The `ContactList.jsx` component is the main interface for managing contacts. It allows users to search, view, create, update, and delete contacts.
 
+<!-- <img src="https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/1.%20main.png?raw=true" width="800" height="400" /> -->
+
 ![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/1.%20main.png?raw=true)
+
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/2.%20addcontact.png?raw=true)
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/3.%20savecontact.png?raw=true)
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/4.%20search.png?raw=true)
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/5.%20update.png?raw=true)
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/5.%20update2.png?raw=true)
+![alt text](https://github.com/newsnick/nodejs_code/blob/main/node_projects/frontend_app/assets/images/6.%20delete.png?raw=true)
 
 ## How to Contribute
 
